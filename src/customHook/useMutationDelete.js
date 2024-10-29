@@ -17,7 +17,12 @@ const useMutationDelete = (key) => {
     return useMutation(handleDel, {
         onSuccess: () => {
             queryClient.invalidateQueries(key);
-                        // queryClient.setQueryData('list2' , (oldData)=>{
+
+
+            // extra option
+
+            
+            // queryClient.setQueryData('list2' , (oldData)=>{
             //     let newData = [...oldData]
             //     newData.push(data)
 

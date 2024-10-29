@@ -18,6 +18,12 @@ const useMutationPost = (url , key) => {
 
         onSuccess:(data)=>{
             queryClient.invalidateQueries(key)
+
+
+            // extra option
+
+
+            
             // queryClient.setQueryData('list' , (oldData)=>{
             //     let newData = [...oldData]
             //     newData.push(data)
