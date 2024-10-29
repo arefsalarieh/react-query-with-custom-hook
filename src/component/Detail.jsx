@@ -1,17 +1,18 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { CustomGetUseQuery } from '../customHook/CustomGetUseQuery'
 import { useMutation, useQueryClient } from 'react-query'
 import { Field, Formik ,Form } from 'formik'
 import axios from 'axios'
 import CustomPutUseMutation from '../customHook/CustomPutUseMutation'
+import useQueryGet from '../customHook/useQueryGet'
+import detailPic from '../assets/images/detailPic.webp'
 
 
 const Detail = () => {
     const {id} = useParams()
-    // console.log(id);
-    const {data , status2 , refetch} = CustomGetUseQuery(`https://662652ab052332d553227616.mockapi.io/test/test/${id}` , 'detail' , [])
-    // console.log(data);
+    console.log(id);
+     const {data , status , refetch} = useQueryGet('detail' , `https://66e301e5494df9a478e3f4f6.mockapi.io/test/test/${id}` )
+    data && console.log(data);
 
 
 
@@ -90,18 +91,17 @@ const Detail = () => {
 
   return (
     <div>
-        <h2>
-             {data?.fname}-{data?.lname}            
-        </h2>
-
-        <Formik initialValues={{fname:'' , lname:''}} onSubmit={handleMutate}>
-            <Form>
-                <Field type='text' name='fname' placeholder='fname'/>
-                <Field type='text' name='lname' placeholder='lname'/>
-                <button type='submit'>Add</button>
-            </Form>
-        </Formik>
-
+        <div className='w-[80%] flex bg-[#F0F0F0] h-96 mx-auto mt-10'>
+             <div className='w-1/2 flex flex-col gap-6 mt-10 px-6'>
+                <h2>course name : {data && data.courseOrBlogName}</h2>
+                <h2 className='h-36'>describe : {data && data.describe}</h2>
+                <h2 >tech : {data && data.tech}</h2>
+                <h2 >cost : {data && data.cost}</h2>
+             </div>
+             <div className='w-1/2'>
+                <img src={detailPic} alt="" />
+             </div>
+        </div>
     </div>
   )
 }

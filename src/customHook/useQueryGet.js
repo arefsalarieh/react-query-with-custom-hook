@@ -9,10 +9,10 @@ import { useQuery } from 'react-query'
         // console.log(result);
     }
 
-const CustomGetUseQuery = (url , key , ...[dependensi]) =>{
+const useQueryGet = (key , url  ) =>{
 
     return useQuery(key , ()=>getList(url))
 
 }
 
-export {CustomGetUseQuery}
+export default useQueryGet

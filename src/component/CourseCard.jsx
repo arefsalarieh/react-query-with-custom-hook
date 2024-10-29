@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom'
 import laptop from '../assets/images/laptop.png'
+import DeleteCourse from './DeleteCourse'
 
 
 const CourseCard = ({item}) => {
@@ -12,9 +14,10 @@ const CourseCard = ({item}) => {
                 <h2 className=' h-6'>tech : {item.tech} </h2>
                 <h2 className=' h-6'>cost : {item.cost}</h2>
                 <div className='flex justify-around'>
-                <button  className=' block bg-[aqua] border-zgh border rounded-xl mx-auto xl:mr-18  py-1 px-4'> detail</button>
-                <button  className=' block bg-[red] border-zgh border rounded-xl mx-auto xl:mr-18  py-1 px-4'> delete</button>
-
+                    <button  className=' block bg-[aqua] border-zgh border rounded-xl mx-auto xl:mr-18  py-1 px-4'> 
+                        <Link to={`/Detail/${item.id}`}>detail</Link>
+                    </button>
+                    <DeleteCourse id={item.id}/>
                 </div>
             </div>
     </div>  

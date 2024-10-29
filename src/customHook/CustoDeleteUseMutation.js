@@ -10,7 +10,7 @@ import { useQuery , useMutation, useQueryClient } from 'react-query'
 
     }
 
-const CustoDeleteUseMutation = () => {
+const useMutationDelete = () => {
     const queryClient = useQueryClient()
 
     return useMutation((url) => handleDel(url), {
@@ -87,4 +87,4 @@ const CustoDeleteUseMutation = () => {
 
 }
 
-export default CustoDeleteUseMutation
+export default useMutationDelete
