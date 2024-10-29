@@ -21,10 +21,7 @@ function App() {
           path:'/',
           element:<List/>
         },
-        {
-          path:'/AddCard',
-          element:<AddCard/>
-        },
+
         {
           path:'/Detail/:id',
           element:<Detail/>

@@ -24,15 +24,15 @@ const List = () => {
 
 
 
-
-
-
-
   return (
     <>
+    <AddCard/>
+
+
     {status === 'loading' && <h1 className='mt-10 text-center font-extrabold text-2xl'>loading</h1>}
 
     {status === 'success' && <h1 className='mt-10 text-center font-extrabold text-2xl'>Courses list</h1>}
+
 
     <div  className='flex flex-wrap justify-between gap-5 w-[90%] mx-auto'>
 

@@ -1,19 +1,23 @@
 import axios from 'axios';
 import { useMutation, useQueryClient } from 'react-query';
 
-const handleAdd = async ({url , values}) => {
-    const res = await axios.post(url, values);
-    return res.data;
-};
 
 
-const CustomPostUseMutation = () => {
+const useMutationPost = (url , key) => {
     const queryClient = useQueryClient();
 
-    return useMutation((obj) => handleAdd(obj),{
+    const handleAdd = async ( values) => {
+        const res = await axios.post(url, values);
+        return res.data;
+    };
+
+    
+
+
+    return useMutation( handleAdd,{
 
         onSuccess:(data)=>{
-            queryClient.invalidateQueries('list2')
+            queryClient.invalidateQueries(key)
             // queryClient.setQueryData('list' , (oldData)=>{
             //     let newData = [...oldData]
             //     newData.push(data)
@@ -60,4 +64,4 @@ const CustomPostUseMutation = () => {
     
 };
 
-export default CustomPostUseMutation;
+export default useMutationPost;
