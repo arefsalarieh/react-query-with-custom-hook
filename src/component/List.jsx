@@ -5,9 +5,9 @@ import {CustomGetUseQuery} from '../customHook/CustomGetUseQuery'
 import { Link } from 'react-router-dom'
 import CustoDeleteUseMutation from '../customHook/CustoDeleteUseMutation'
 import AddCard from './AddCard'
-import laptop from '../assets/images/laptop.png'
+import CourseCard from './CourseCard'
 
-const list2 = () => {
+const List = () => {
 
 
 
@@ -34,28 +34,24 @@ const list2 = () => {
 
   return (
     <>
-    {status === 'loading' && <h3>loading</h3>}
+    {status === 'loading' && <h1 className='mt-10 text-center font-extrabold text-2xl'>loading</h1>}
 
-    <div style={{display:'flex' , flexWrap:'wrap'}}>
+    {status === 'success' && <h1 className='mt-10 text-center font-extrabold text-2xl'>Courses list</h1>}
+
+    <div  className='flex flex-wrap justify-between gap-5 w-[90%] mx-auto'>
+
         {data && data.map((item , index)=>{
             return(
-                <div key={index} style={{margin:'30px' , border:'1px solid red' , width:'200px' , textAlign:'center'}}>
-                    <img src={laptop} style={{width:'100%' }} />
-                    <h2>{item.fname}</h2>
-                    <h2>{item.lname}</h2>
-                    <button onClick={()=>{handleDelete(item.id)}}>delete</button>
-                    <Link to={`/Detail/${item.id}`}>detail</Link>
+                <CourseCard item={item}/>
 
-                </div>
             )
         })}
     </div>
 
 
 
-    <AddCard/>
     </>
   )
 }
 
-export default list2
+export default List
