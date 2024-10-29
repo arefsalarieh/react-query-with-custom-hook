@@ -20,7 +20,7 @@ const useMutationDelete = (key) => {
 
 
             // extra option
-
+            
             
             // queryClient.setQueryData('list2' , (oldData)=>{
             //     let newData = [...oldData]
