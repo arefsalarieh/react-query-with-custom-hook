@@ -20,7 +20,7 @@ const List = () => {
 
 
     // custom hook
-     const {data , status , refetch} = useQueryGet(['list'] ,'https://671d123d09103098807c2afb.mockapi.io/arefsalarieh/courseandblogs'  )
+     const {data , status , refetch} = useQueryGet(['list'] ,'https://66e301e5494df9a478e3f4f6.mockapi.io/test/test'  )
 
 
 

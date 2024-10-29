@@ -3,19 +3,20 @@ import React, { useEffect } from 'react'
 import { useQuery , useMutation, useQueryClient } from 'react-query'
 
 
+
+
+const useMutationDelete = (key) => {
+    const queryClient = useQueryClient()
+
     const handleDel =async (url ) =>{
         const res =await axios.delete(url);
-        // console.log(res);
         return res.data
 
     }
 
-const useMutationDelete = () => {
-    const queryClient = useQueryClient()
-
-    return useMutation((url) => handleDel(url), {
+    return useMutation(handleDel, {
         onSuccess: () => {
-            queryClient.invalidateQueries('list2');
+            queryClient.invalidateQueries(key);
                         // queryClient.setQueryData('list2' , (oldData)=>{
             //     let newData = [...oldData]
             //     newData.push(data)
